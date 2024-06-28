@@ -47,7 +47,7 @@ if __name__ == "__main__":
     t_0 = time.time()
     for phys in range(2)[:]:
         phys_name, phys_model = model_setup.physical_models()[phys]
-        base_name = f"multifrac_{phys_name}"
+        base_name = f"multiple_fractures/{phys_name}"
         columns = []
         all_iterations = {}
         all_data = {}

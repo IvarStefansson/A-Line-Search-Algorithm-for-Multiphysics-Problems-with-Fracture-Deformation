@@ -8,8 +8,7 @@ import time
 
 import pandas as pd
 import porepy as pp
-from porepy.applications.md_grids.model_geometries import \
-    CubeDomainOrthogonalFractures
+from porepy.applications.md_grids.model_geometries import CubeDomainOrthogonalFractures
 
 import model_setup
 from common_params import algorithm_names, algorithms, params
@@ -28,7 +27,7 @@ if __name__ == "__main__":
     for nc in [6, 12]:
         for phys in range(2):
             phys_name, phys_model = model_setup.physical_models()[phys]
-            base_name = "characteristic_displacement/" + phys_name + f"_nc_{nc}/"
+            base_name = "single_fracture/" + phys_name + f"_nc_{nc}/"
             columns = []
             all_iterations = {}
             all_data = {}

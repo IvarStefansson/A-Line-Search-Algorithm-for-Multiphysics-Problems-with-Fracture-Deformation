@@ -6,12 +6,12 @@ import numpy as np
 import porepy as pp
 import scipy.sparse as sps
 
-from boundary_conditions import (DisplacementBoundaryConditionsLinear,
-                                 EnergyBoundaryConditionsDirEastWest,
-                                 FluidFlowBoundaryConditionsDirEastWest)
+from boundary_conditions import (
+    DisplacementBoundaryConditionsLinear,
+    EnergyBoundaryConditionsDirEastWest,
+    FluidFlowBoundaryConditionsDirEastWest,
+)
 from postprocessing import ExportScaledData, IterationExporting
-from smoothing_model import (AdaptiveSmoothingExplicit,
-                             AdaptiveSmoothingImplicit)
 
 logger = logging.getLogger(__name__)
 
@@ -911,29 +911,9 @@ class ThermoporomechanicsModel(
     """Mixed-dimensional poroelastic problem."""
 
 
-def physical_models(smoothing=None):
-    bases = [PoromechanicsModel, ThermoporomechanicsModel]
-    names = ["Poromechanics", "Thermoporomechanics"]
-    models = []
-    for b, n in zip(bases, names):
-        if smoothing == "explicit":
-
-            class Model(AdaptiveSmoothingExplicit, b):
-                pass
-
-        elif smoothing == "implicit":
-
-            class Model(
-                AdaptiveSmoothingImplicit,
-                # InteriorPoint,
-                b,
-            ):
-                pass
-
-        else:
-
-            class Model(b):
-                pass
-
-        models.append((n, Model))
+def physical_models():
+    models = [
+        ("Poromechanics", PoromechanicsModel),
+        ("Thermoporomechanics", ThermoporomechanicsModel),
+    ]
     return models
