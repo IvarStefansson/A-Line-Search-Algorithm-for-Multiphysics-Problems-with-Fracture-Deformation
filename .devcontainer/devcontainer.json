@@ -1,0 +1,21 @@
+{
+	"image": "porepy/dev:latest",
+	// Configure tool-specific properties.
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"ms-python.python",
+				"ms-python.black-formatter",
+				"GitHub.copilot",
+				"github.copilot-chat",
+				"ms-python.vscode-pylance",
+				"GitHub.vscode-pull-request-github",
+				"GitHub.remotehub",
+				"maptz.camelcasenavigation",
+				"ms-toolsai.jupyter",
+				"eamodio.gitlens",
+				"mutantdino.resourcemonitor"
+			]
+		}
+	}
+}
