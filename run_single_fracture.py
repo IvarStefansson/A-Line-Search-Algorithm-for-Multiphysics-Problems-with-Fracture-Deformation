@@ -98,13 +98,16 @@ if __name__ == "__main__":
                     0,
                     params["max_iterations"],
                     file_name=base_name + "/iteration_table.png",
-                    title=phys_name + f" 1/h={nc}",
+                    title=phys_name + f", h=1/{nc}",
                 )
+                # Split the table in two for the two dilation angles
                 df1 = df.iloc[:, :5]
                 df2 = df.iloc[:, 5:]
                 for dfi, phi in zip([df1, df2], dilation_angles):
-                    dfi.columns = [col[6:11] for col in dfi.columns]
-                    title = phys_name + f" 1/h={nc}, $\\phi={phi}$"
+                    # Strip unwanted characters from column names
+                    dfi.columns = [col[:7] + col[9:] for col in dfi.columns]
+                    dfi.columns = [col[6:10] for col in dfi.columns]
+                    title = phys_name + f", h=1/{nc}, $\\phi={phi}$"
                     save_file = base_name + "/iteration_table" + f"_phi_{phi}" + ".png"
                     heatmap(
                         dfi,

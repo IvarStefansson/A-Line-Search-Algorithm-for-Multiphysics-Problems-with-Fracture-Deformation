@@ -45,14 +45,14 @@ if __name__ == "__main__":
     )
 
     t_0 = time.time()
-    for phys in range(2)[:]:
+    for phys in range(2):
         phys_name, phys_model = model_setup.physical_models()[phys]
         base_name = f"multiple_fractures/{phys_name}"
         columns = []
         all_iterations = {}
         all_data = {}
-        for num_fractures in [4, 8][:]:
-            for dilation in [0.1, 0.2][:]:
+        for num_fractures in [4, 8]:
+            for dilation in [0.1, 0.2]:
                 subcase_name = f"fractures_{num_fractures}_dilation_{dilation}"
                 col_name = f"{num_fractures} fracs\n" + r"$\phi$" + f"={dilation:.1f}"
                 columns.append(col_name)
