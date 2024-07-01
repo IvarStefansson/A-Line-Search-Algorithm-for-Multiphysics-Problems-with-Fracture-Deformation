@@ -37,7 +37,7 @@ if __name__ == "__main__":
                 for u_c in characteristic_displacement_scalings:
                     case_name = f"u_c_{u_c}_dil_{dil}"
                     u_sc = strip_leading_zero_scientific(u_c)
-                    col_name = r"$u_c$" + f"={u_sc}\n" + r"$\phi$" + f"={dil}"
+                    col_name = r"$u_c$" + f"={u_sc / 1e2}\n" + r"$\phi$" + f"={dil}"
                     columns.append(col_name)
 
                     logger.info(
